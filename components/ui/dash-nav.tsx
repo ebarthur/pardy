@@ -1,11 +1,12 @@
-"use client";
-import { Input } from "@nextui-org/react";
+'use client';
+import { getCurrentUser } from '@/utils/authUser';
+import { Input } from '@nextui-org/react';
 // import { createNewEvent } from '@/actions/events'
-import { Button, Tooltip } from "@nextui-org/react";
-import { CirclePlus } from "lucide-react";
-import { useTransition } from "react";
+import { Button, Tooltip } from '@nextui-org/react';
+import { CirclePlus } from 'lucide-react';
+import { useTransition } from 'react';
 
-const Nav = () => {
+const Nav = async () => {
   const [isPending, startTransition] = useTransition();
 
   const handleClick = () => {
@@ -15,13 +16,13 @@ const Nav = () => {
   };
 
   return (
-    <nav className="h-[65px] border-b border-gray-200 flex items-center px-6 gap-4">
+    <nav className='flex h-[65px] items-center gap-4 border-b border-gray-200 px-6'>
       <div>
-        <Tooltip content="New Event">
+        <Tooltip content='New Event'>
           <Button
             isIconOnly
-            variant="ghost"
-            size="sm"
+            variant='ghost'
+            size='sm'
             isLoading={isPending}
             onClick={handleClick}
           >
@@ -29,9 +30,11 @@ const Nav = () => {
           </Button>
         </Tooltip>
       </div>
-      <div className="w-full">
-        <Input size="sm" variant="faded" placeholder="search" />
+      <div className='w-3/4'>
+        <Input size='sm' variant='faded' placeholder='search' />
       </div>
+      {/* Replace with user component  */}
+      <div className='ml-20 text-sm'>UserComponent</div>
     </nav>
   );
 };
