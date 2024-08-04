@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <main className='container z-20 my-10 h-auto w-screen border-t border-gray-300 pt-4'>
+    <div className='container z-20 my-10 h-auto w-screen border-t border-gray-300 pt-4'>
       <div className='flex items-center justify-between px-2 md:px-6'>
         <div className='font-mono text-xs md:text-sm'>
           Built by{' '}
@@ -14,6 +14,6 @@ export default function Footer() {
           Copyright &copy; 2024
         </div>
       </div>
-    </main>
+    </div>
   );
 }

@@ -18,14 +18,12 @@ export default function LandingLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${inter.className} bg-transparent`}>
-        <Container>
-          <Navbar />
-          {children}
-        </Container>
-        <Footer />
-      </body>
-    </html>
+    <div className={`${inter.className} bg-transparent`}>
+      <Container>
+        <Navbar />
+        {children}
+      </Container>
+      <Footer />
+    </div>
   );
 }
