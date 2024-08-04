@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@nextui-org/react';
-import { SignOut } from '@/actions/signout.actions';
+import { SignOut } from '@/actions/auth';
 import {
   Cog,
   Combine,
