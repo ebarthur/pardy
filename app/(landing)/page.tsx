@@ -26,7 +26,7 @@ export default function Home() {
             <div className='flex flex-wrap justify-center gap-x-6 gap-y-4'>
               <Link
                 href='/sign-in'
-                className='relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-[#9333EA] before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max'
+                className='relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-[#AA55F7] before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max'
               >
                 <span className='relative text-base font-semibold text-white'>
                   Get started
@@ -36,7 +36,7 @@ export default function Home() {
                 href='/'
                 className='relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:border before:border-transparent before:bg-primary/10 before:bg-gradient-to-b before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 dark:before:border-gray-700 dark:before:bg-gray-800 sm:w-max'
               >
-                <span className='relative text-base font-semibold text-[#9333EA] dark:text-white'>
+                <span className='relative text-base font-semibold text-[#AA55F7] dark:text-white'>
                   Learn more
                 </span>
               </Link>

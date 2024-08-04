@@ -12,7 +12,7 @@ export const getCurrentUser = cache(async (): Promise<AuthUser> => {
   if (!token) redirect('/sign-in')
 
   const user = await getUserFromToken(token)
-  if (!user) redirect('/sign-in')
+  // if (!user) redirect('/sign-in')
 
   return user
 })

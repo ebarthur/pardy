@@ -6,7 +6,7 @@ import { Button, Tooltip } from '@nextui-org/react';
 import { CirclePlus } from 'lucide-react';
 import { useTransition } from 'react';
 
-const Nav = async () => {
+const Nav = () => {
   const [isPending, startTransition] = useTransition();
 
   const handleClick = () => {
@@ -34,7 +34,7 @@ const Nav = async () => {
         <Input size='sm' variant='faded' placeholder='search' />
       </div>
       {/* Replace with user component  */}
-      <div className='ml-20 text-sm'>UserComponent</div>
+      <div className='ml-20 font-mono text-sm'>UserComponent</div>
     </nav>
   );
 };

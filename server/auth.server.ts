@@ -65,7 +65,7 @@ export async function signUp({
 }
 
 export async function getUserFromToken(token: { name: string; value: string }) {
-  const url = new URL(`${BASE_URL}/auth/`)
+  const url = new URL(`${BASE_URL}/auth`)
 
   try {
     const response = await fetch(url, {
@@ -74,6 +74,7 @@ export async function getUserFromToken(token: { name: string; value: string }) {
         Authorization: `Bearer ${token.value}`,
       },
     })
+    console.log(token.value)
 
     if (!response.ok) {
       throw new Error(`${response.statusText}`)

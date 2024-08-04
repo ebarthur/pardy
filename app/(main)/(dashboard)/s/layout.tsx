@@ -12,7 +12,7 @@ const Dashboard = ({ children, rsvps, events }: DashboardProps) => {
 
   return (
     <Shell>
-      {path === '/dashboard' ? (
+      {path === '/s' ? (
         <div className='flex h-full w-full'>
           <div className='w-1/2 border-r border-default-50'>{rsvps}</div>
           <div className='flex w-1/2 flex-col'>
