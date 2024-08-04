@@ -12,7 +12,7 @@ export default function Navbar() {
           </h1>
         </Link>
         <div>
-          <Link href={'http://github.com/ebarthur'}>
+          <Link href={'https://github.com/ebarthur/pardy'}>
             <img src='./github.svg' alt='github.com' className='h-8 w-8' />
           </Link>
         </div>
