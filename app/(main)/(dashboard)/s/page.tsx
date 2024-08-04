@@ -5,7 +5,7 @@ const Home = () => {
         <h4 className='flex flex-col items-center font-mono text-lg'>
           Attendees:
         </h4>
-        <h2 className='my-8 text-center text-7xl font-semibold'>4</h2>
+        <h2 className='my-8 text-center text-7xl font-semibold'>0</h2>
       </div>
     </div>
   );

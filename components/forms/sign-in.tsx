@@ -11,7 +11,7 @@ import {
 } from '../ui/card';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
-import { login } from '@/actions/login.actions';
+import { login } from '@/actions/auth';
 import { useFormState } from 'react-dom';
 import Submit from './submit';
 

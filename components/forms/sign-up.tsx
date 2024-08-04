@@ -13,7 +13,7 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { useFormState } from 'react-dom';
 import Submit from './submit';
-import { registerUser } from '@/actions/signup.actions';
+import { registerUser } from '@/actions/auth';
 
 export function SignUpForm() {
   const [formState, action] = useFormState<{ message: string | null }>(

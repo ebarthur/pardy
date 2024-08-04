@@ -1,6 +1,6 @@
 'use server'
 
-import { getUserFromToken } from '@/server/auth.server'
+import { getUserFromToken } from '@/server/auth'
 import { AuthUser } from '@/types/user'
 import { COOKIE_NAME } from '@/utils/constants'
 import { cookies } from 'next/headers'

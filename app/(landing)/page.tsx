@@ -1,11 +1,9 @@
-import Navbar from './components/navbar';
 import Link from 'next/link';
 import { PartyPopper } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className='relative w-full'>
-      <Navbar />
       <div className='container py-5 pb-0'>
         <h1 className='mx-auto mt-8 text-center font-semibold text-gray-600'>
           Welcome to Pardy{' '}
@@ -25,7 +23,7 @@ export default function Home() {
           <div className='mx-auto mt-8 text-center'>
             <div className='flex flex-wrap justify-center gap-x-6 gap-y-4'>
               <Link
-                href='/sign-in'
+                href='/'
                 className='relative flex h-11 w-full items-center justify-center px-6 before:absolute before:inset-0 before:rounded-full before:bg-[#AA55F7] before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max'
               >
                 <span className='relative text-base font-semibold text-white'>
@@ -42,7 +40,12 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className='mt-8 flex items-center gap-2'></div>
+          <div className='my-8 flex items-center gap-2'>
+            <img src='./dashboard.png' alt='Dashboard' />
+          </div>
+          <div className='font-roboto text-3xl font-bold text-gray-500'>
+            "Redefining the future of events..."
+          </div>
         </div>
       </div>
     </div>

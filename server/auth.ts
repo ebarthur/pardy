@@ -71,10 +71,9 @@ export async function getUserFromToken(token: { name: string; value: string }) {
     const response = await fetch(url, {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${token.value}`,
+        Authorization: `Bearer  ${token.value}`,
       },
     })
-    console.log(token.value)
 
     if (!response.ok) {
       throw new Error(`${response.statusText}`)
