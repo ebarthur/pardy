@@ -1,15 +1,10 @@
-<h1>Pardy | The Event App</h1>
+# gremix
 
-<p>This is the complete frontend repository for Pardy.</p>
+> Do great stuff
 
-[View the backend application](https://github.com/ebarthur/pardy-api)
+A Remix.run 💿 starter template. Includes the following setup:
 
-<h2>Technical Stack</h2>
-<ul>
-	<li><strong>Language:</strong> TypeScript</li>
-	<li><strong>Framework:</strong> Next.js</li>
-</ul>
-
-<h2>License</h2>
-
-<p>This project is licensed under the MIT License.</p>
+- UnoCSS with Tailwind, Lucide Icons, Spinner presets: https://icones.js.org/
+- `clsx` dependency
+- prisma with helper scripts
+- `<PendingUi />`

@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                   Int                    @id @default(autoincrement())
+  username             String                 @unique
+  email                String                 @unique
+  role                 String?                @default("USER") // []: user, organizer, admin 
+  PasswordResetRequest PasswordResetRequest[]
+  createdAt            DateTime               @default(now())
+  updatedAt            DateTime               @updatedAt
+  verified             Boolean                @default(false)
+  AuthCredential       AuthCredential?
+  events               Event[]                @relation("OrganizerEvents") // Events the user organizes
+  tickets              Ticket[] // Tickets the user has purchased
+}
+
+model AuthCredential {
+  id       Int    @id @default(autoincrement())
+  user     User   @relation(fields: [userId], references: [id])
+  userId   Int    @unique
+  password String
+}
+
+model EmailVerificationRequest {
+  id        Int      @id @default(autoincrement())
+  email     String
+  token     String
+  createdAt DateTime @default(now())
+}
+
+model PasswordResetRequest {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+  token     String
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Event {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
+  organizerId Int
+  organizer   User     @relation("OrganizerEvents", fields: [organizerId], references: [id])
+  tickets     Ticket[] // Tickets related to the event
+  location    String
+  date        DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Ticket {
+  id         Int    @id @default(autoincrement())
+  eventId    Int
+  event      Event  @relation(fields: [eventId], references: [id])
+  userId     Int
+  user       User   @relation(fields: [userId], references: [id])
+  ticketType String @default("FREE") // []: FREE, PAID
+
+  createdAt DateTime @default(now())
+}
+
+model Category {
+  id     Int     @id @default(autoincrement())
+  name   String  @unique
+  events Event[]
+}
