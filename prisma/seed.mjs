@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-	await prisma.category.deleteMany();
 
 	const categories = [
 		{ id: 1, name: "Music" },
