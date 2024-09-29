@@ -4,43 +4,43 @@ import ReactDOM from "react-dom";
 import { useMounted } from "~/lib/use-mounted";
 
 interface Props extends React.PropsWithChildren {
-  className?: string;
-  open?: boolean;
-  onClose?: VoidFunction;
+	className?: string;
+	open?: boolean;
+	onClose?: VoidFunction;
 }
 
 function Modal({ children, className, onClose, open }: Props) {
-  const ref = React.useRef<HTMLDialogElement>(null);
-  const mounted = useMounted();
+	const ref = React.useRef<HTMLDialogElement>(null);
+	const mounted = useMounted();
 
-  React.useEffect(() => {
-    if (open) {
-      ref.current?.showModal();
-    } else {
-      ref.current?.close();
-    }
+	React.useEffect(() => {
+		if (open) {
+			ref.current?.showModal();
+		} else {
+			ref.current?.close();
+		}
 
-    ref.current?.addEventListener("close", () => {
-      onClose?.();
-    });
-  }, [open, onClose]);
+		ref.current?.addEventListener("close", () => {
+			onClose?.();
+		});
+	}, [open, onClose]);
 
-  if (!mounted) {
-    return null;
-  }
+	if (!mounted) {
+		return null;
+	}
 
-  return ReactDOM.createPortal(
-    <dialog
-      className={clsx(
-        "rounded-xl border border-zinc-300 dark:border-neutral-700 shadow dark:bg-neutral-900",
-        className
-      )}
-      ref={ref}
-    >
-      {children}
-    </dialog>,
-    document.body
-  );
+	return ReactDOM.createPortal(
+		<dialog
+			className={clsx(
+				"rounded-xl border border-zinc-300 dark:border-neutral-700 shadow dark:bg-neutral-900",
+				className,
+			)}
+			ref={ref}
+		>
+			{children}
+		</dialog>,
+		document.body,
+	);
 }
 
 export { Modal };

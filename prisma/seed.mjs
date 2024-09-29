@@ -3,7 +3,6 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function main() {
-
 	const categories = [
 		{ id: 1, name: "Music" },
 		{ id: 2, name: "Online" },

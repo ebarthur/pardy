@@ -1,12 +1,11 @@
-import { Link, useRouteLoaderData, Form } from "@remix-run/react";
-
-import { loader } from "~/root";
-import { Username } from "./username";
-import { Button } from "./button";
-import { Layout } from "./layout";
-import { Input } from "./input";
+import { Form, Link, useRouteLoaderData } from "@remix-run/react";
 import React from "react";
+import { loader } from "~/root";
+import { Button } from "./button";
+import { Input } from "./input";
+import { Layout } from "./layout";
 import { Modal } from "./modal";
+import { Username } from "./username";
 
 export default function Navbar() {
   const { user } = useRouteLoaderData<typeof loader>("root") || {};

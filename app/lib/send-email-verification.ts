@@ -1,8 +1,8 @@
 import { type EmailVerificationRequest } from "@prisma/client";
+import invariant from "tiny-invariant";
 import { send } from "./mail.server";
 import { prisma } from "./prisma.server";
 import { randomStr } from "./random-str";
-import invariant from "tiny-invariant";
 
 async function sendEmailVerification(email: string) {
 	const existingVerification = await prisma.emailVerificationRequest.findFirst({
@@ -48,11 +48,11 @@ async function sendEmail(
 		from: "pardy@ebartur.com",
 		subject: `Pardy Email Verification: ${username}`,
 		html: `<p>Hello 👋🏽,</p>
-            <p>Thanks for choosing to secure your account <strong>${username}</strong> by providing an email address.</p>
-            <p>If you submitted this request, please click on the following link to complete the verification process:</p>
-            <p><a href="${link}">${link}</a></p>
-            <p>Thank you!</p>
-            <p><em>(You cannot reply to this email)</em></p>`,
+           <p>Thanks for choosing to secure your account <strong>${username}</strong> by providing an email address.</p>
+           <p>If you submitted this request, please click the button below to complete the verification process:</p>
+           <a href="${link}" style="display: inline-flex; align-items: center; gap: 8px; background-color: #2563eb; color: white; padding: 4px 8px; border-radius: 8px; font-weight: 500; text-decoration: none;">Verify Email</a>
+           <p>Thank you!</p>
+           <p><em>(You cannot reply to this email)</em></p>`,
 	});
 }
 

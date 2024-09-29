@@ -3,19 +3,18 @@ import "@unocss/reset/tailwind-compat.css";
 import "virtual:uno.css";
 import "./styles.css";
 
+import { User } from "@prisma/client";
+import { LoaderFunctionArgs, json } from "@remix-run/node";
 import {
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from "@remix-run/react";
-import { PendingUI } from "./components/pending-ui";
-import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { User } from "@prisma/client";
+import Navbar from "./components/navbar";
+import { PendingUI } from "./components/pending-ui";
 import { getUser } from "./lib/session.server";
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   let user: User | undefined | null;
