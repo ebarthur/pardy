@@ -6,10 +6,12 @@ import { Input } from "./input";
 import { Layout } from "./layout";
 import { Modal } from "./modal";
 import { Username } from "./username";
+import { EventModal } from "./event-modal";
 
 export default function Navbar() {
-  const { user } = useRouteLoaderData<typeof loader>("root") || {};
+  const { user, categories } = useRouteLoaderData<typeof loader>("root") || {};
   const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const handleLogoutClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -21,6 +23,10 @@ export default function Navbar() {
   const handleConfirmLogout = () => {
     setIsModalOpen(false);
   };
+  const handleCreateEventClick = () => setIsOpen(true);
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <Layout>
@@ -31,19 +37,28 @@ export default function Navbar() {
             <p className="text-sm">Pardy</p>
           </h1>
         </Link>
-        {/* this should be the plus button that shows a modal to create an event */}
         {user && (
           <div className="flex items-center gap-4">
             {user.role === "ORGANIZER" && (
-              <Button variant="ghost" className="!py-2">
+              <Button
+                onClick={handleCreateEventClick}
+                variant="ghost"
+                className="!py-2"
+              >
                 <div className="i-lucide-circle-plus" />
               </Button>
             )}
-            <div className="min-w-2xl max-w-2xl">
+            <div className=" hidden md:block min-w-2xl max-w-2xl">
               <Input placeholder="search" className="" />
             </div>
           </div>
         )}
+
+        <EventModal
+          isOpen={isOpen}
+          onClose={handleCloseModal}
+          categories={categories}
+        />
 
         {user ? (
           <div className="flex items-center gap-2">

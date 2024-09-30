@@ -16,6 +16,7 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import { PendingUI } from "./components/pending-ui";
 import { getUser } from "./lib/session.server";
+import { prisma } from "./lib/prisma.server";
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   let user: User | undefined | null;
 
@@ -24,8 +25,13 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
   } catch (_error) {
     //
   }
+  const categories = await prisma.category.findMany();
 
-  return json({ user });
+  if (!categories) {
+    return null;
+  }
+
+  return json({ user, categories });
 };
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
